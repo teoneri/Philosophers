@@ -1,6 +1,6 @@
 GCC     = gcc
 CFLAGS  = -g -Wall -Wextra -Werror -pthread
-FILES   = SRC/main.c SRC/utils.c SRC/philo_actions.c
+FILES   = SRC/main.c SRC/utils.c SRC/philo_actions.c SRC/threads.c
 NAME    = philosophers
 RM  = rm -f
 OBJECTS=$(FILES:.c=.o)
