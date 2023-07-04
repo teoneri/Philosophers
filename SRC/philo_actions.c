@@ -6,7 +6,7 @@
 /*   By: mneri <mneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 14:21:27 by mneri             #+#    #+#             */
-/*   Updated: 2023/06/30 17:02:58 by mneri            ###   ########.fr       */
+/*   Updated: 2023/07/04 19:51:31 by mneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@ void	ft_philo_act(t_philo *philo, char *act)
 {
 	unsigned long	time;
 
-	time = ft_get_time() - philo->env.init_time;
 	if (philo->stop != 0)
 		return ;
+	pthread_mutex_lock(&philo->print_mutex);
+	time = ft_get_time() - philo->env.init_time;
 	if (!ft_strncmp(act, "eat", 3))
 	{
 		printf("%ld %d is eating\n", time, philo->id);
@@ -31,7 +32,9 @@ void	ft_philo_act(t_philo *philo, char *act)
 		printf("%ld %d is thinking\n", time, philo->id);
 	else if (!ft_strncmp(act, "sleep", 5))
 		printf("%ld %d is sleeping\n", time, philo->id);
+	pthread_mutex_unlock(&philo->print_mutex);
 }
+
 
 int	ft_check_times_ate(t_philo *philo)
 {

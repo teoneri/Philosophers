@@ -6,7 +6,7 @@
 /*   By: mneri <mneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/20 15:07:39 by mneri             #+#    #+#             */
-/*   Updated: 2023/06/30 17:05:03 by mneri            ###   ########.fr       */
+/*   Updated: 2023/07/04 19:30:32 by mneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,18 +80,16 @@ int	ft_strncmp(const char *s1, const char *s2, unsigned int n)
 	return (0);
 }
 
-void	ft_free(pthread_mutex_t *mutex, t_env *env, t_philo *philo)
+void	ft_free(t_philo *philo)
 {
 	int	i;
 
 	i = 0;
 	while (i < philo->env.num_philo)
 	{
-		pthread_mutex_destroy(philo[i].fork_mutex);
-		pthread_join(philo[i].thread_id, NULL);
+		pthread_mutex_destroy(philo[i].l_fork);
+		pthread_mutex_destroy(philo[i].r_fork);
+		pthread_mutex_destroy(&philo[i].print_mutex);
 		i++;
 	}
-	free(env);
-	free(mutex);
-	free(philo);
 }
