@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   lib_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mneri <mneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/20 15:07:39 by mneri             #+#    #+#             */
-/*   Updated: 2023/07/04 19:30:32 by mneri            ###   ########.fr       */
+/*   Created: 2023/07/10 14:59:24 by mneri             #+#    #+#             */
+/*   Updated: 2023/07/10 15:23:23 by mneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,18 +46,6 @@ int	ft_isdigit(int c)
 		return (0);
 }
 
-int	ft_getnext_philo(t_philo *philo)
-{
-	int	next;
-
-	if (philo->env.num_philo == 1)
-		next = philo->id - 1;
-	if (philo->id == 1)
-		next = philo->env.num_philo - 1;
-	else
-		next = philo->id - 2;
-	return (next);
-}
 
 int	ft_strncmp(const char *s1, const char *s2, unsigned int n)
 {
@@ -78,18 +66,4 @@ int	ft_strncmp(const char *s1, const char *s2, unsigned int n)
 			return (t1[i] - t2[i]);
 	}
 	return (0);
-}
-
-void	ft_free(t_philo *philo)
-{
-	int	i;
-
-	i = 0;
-	while (i < philo->env.num_philo)
-	{
-		pthread_mutex_destroy(philo[i].l_fork);
-		pthread_mutex_destroy(philo[i].r_fork);
-		pthread_mutex_destroy(&philo[i].print_mutex);
-		i++;
-	}
 }
