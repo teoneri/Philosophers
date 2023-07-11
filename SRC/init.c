@@ -6,7 +6,7 @@
 /*   By: mneri <mneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 15:06:25 by mneri             #+#    #+#             */
-/*   Updated: 2023/07/10 18:15:43 by mneri            ###   ########.fr       */
+/*   Updated: 2023/07/11 16:49:35 by mneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_init_mutex(t_env *env)
 	pthread_mutex_init(env->stop_mutex, NULL);
 	pthread_mutex_init(env->print_mutex, NULL);
 	pthread_mutex_init(env->eat_mutex, NULL);
-	while(i < env->num_philo)
+	while (i < env->num_philo)
 	{
 		pthread_mutex_init(&env->fork[i], NULL);
 		i++;

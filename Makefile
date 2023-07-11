@@ -1,5 +1,5 @@
 GCC     = gcc
-CFLAGS  = -g -Wall -Wextra -Werror -pthread -fsanitize=thread
+CFLAGS  = -g -Wall -Wextra -Werror -pthread 
 FILES   = SRC/main.c SRC/lib_utils.c SRC/philo.c SRC/init.c SRC/philo_utils.c 
 NAME    = philosophers
 RM  = rm -f

@@ -6,7 +6,7 @@
 /*   By: mneri <mneri@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 14:59:24 by mneri             #+#    #+#             */
-/*   Updated: 2023/07/10 15:23:23 by mneri            ###   ########.fr       */
+/*   Updated: 2023/07/11 16:05:54 by mneri            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ int	ft_isdigit(int c)
 	else
 		return (0);
 }
-
 
 int	ft_strncmp(const char *s1, const char *s2, unsigned int n)
 {
